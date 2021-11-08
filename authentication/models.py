@@ -1,7 +1,7 @@
 from typing import Type
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
-from django.contrib.auth.models import (AbstractUser, BaseUser, PermissionsMixin)
+from django.contrib.auth.models import (AbstractUser, PermissionsMixin)
 
 class UserManager(BaseUserManager):
     
@@ -26,7 +26,7 @@ class UserManager(BaseUserManager):
         user.save()
         return user
     
-class User(AbstractUser, PermissionsMixin):
+class User(AbstractUser):
     username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(max_length=255,unique=True, db_index=True)
     is_verified = models.BooleanField(default=False)
