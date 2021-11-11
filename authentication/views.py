@@ -8,7 +8,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from .models import User
-from .serializers import RegisterSerializer, EmailVerificationSerializer
+from .serializers import RegisterSerializer, EmailVerificationSerializer, LoginSerializer
 from .utils import Util
 import jwt
 
@@ -69,3 +69,13 @@ class VerifyEmail(views.APIView):
 
         except jwt.exceptions.DecodeError:
             return Response({'messages': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LoginAPIView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        return  Response(serializer.data, status=status.HTTP_200_OK)
