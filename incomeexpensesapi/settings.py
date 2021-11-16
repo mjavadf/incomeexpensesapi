@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
     'expenses.apps.ExpensesConfig',
+    'income.apps.IncomeConfig',
     'rest_framework',
     'drf_yasg',
 ]
@@ -128,7 +129,7 @@ REST_FRAMEWORK = {
     # https://www.django-rest-framework.org/api-guide/pagination/#pagination
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 3,
+    'PAGE_SIZE': 20,
     'NON_FIELD_ERRORS_KEY': 'error',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
