@@ -9,12 +9,14 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from .models import User
 from .serializers import RegisterSerializer, EmailVerificationSerializer, LoginSerializer
+from .renderers import UserRenderer
 from .utils import Util
 import jwt
 
 
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
+    renderer_classes = (UserRenderer,)
 
     def post(self, request):
         user = request.data
