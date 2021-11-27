@@ -38,6 +38,7 @@ urlpatterns = [
     path('auth/', include('authentication.urls'), name='authentication'),
     path('expenses/', include('expenses.urls')),
     path('income/', include('income.urls')),
+    path('userstats/', include('userstat.urls')),
 
     # drf-yasg module 
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'expenses.apps.ExpensesConfig',
     'income.apps.IncomeConfig',
+    'userstat.apps.UserstatConfig',
     'rest_framework',
     'drf_yasg',
 ]
